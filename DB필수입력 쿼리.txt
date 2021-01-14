@@ -1,3 +1,16 @@
+create database erp;
+
+use mysql;
+delete from mysql.user where User ='admin';
+delete from mysql.db where User ='admin';
+FLUSH PRIVILEGES;
+
+create user 'admin'@localhost identified by 'admin';
+grant create, drop, select, insert, delete, update on erp.* to 'admin'@'localhost';
+FLUSH PRIVILEGES;
+
+use erp;
+
 CREATE TABLE board(
 board_id int not null auto_increment primary key,
 board_department char(3) not null,		
@@ -801,6 +814,19 @@ create table employee(
 	emp_off_use double default 0, 
 	emp_off_remain double 
 );
+INSERT INTO employee SET 
+   emp_department = 'ad', 
+   emp_position = 'ad', 
+   emp_num = 'admin', 
+   emp_name = 'admin', 
+   emp_enter = '1111-11-11', 
+   emp_birth = '1111-11-11', 
+   emp_password = 'admin', 
+   emp_email = 'admin', 
+   emp_regdate = now(), 
+   emp_auth = 10, 
+   emp_confirm = 'Y';
+
 
 create table employee_detail (
 	emp_company char(2) not null,
@@ -1006,10 +1032,6 @@ create table salary_calculation (
 	salary_l_income int, 	
 	salary_totalcost int		
 );
-
-
-2. 10만원 구간별 실수령액 및 공제액 데이터 입력
-
 INSERT INTO salary_calculation SET starting_range=1000000, end_range=1100000, net_pay=923500, salary_nps=40500, salary_h_insurance=28080, salary_care=2070, salary_e_insurance=5850, salary_income=0, salary_l_income=0, salary_totalcost=76500;
 INSERT INTO salary_calculation SET starting_range=1100000, end_range=1200000, net_pay=1013810, salary_nps=45000, salary_h_insurance=31200, salary_care=2300, salary_e_insurance=6500, salary_income=1090, salary_l_income=100, salary_totalcost=86190;
 INSERT INTO salary_calculation SET starting_range=1200000, end_range=1300000, net_pay=1103640, salary_nps=49500, salary_h_insurance=34320, salary_care=2530, salary_e_insurance=7150, salary_income=2600, salary_l_income=260, salary_totalcost=96360;
