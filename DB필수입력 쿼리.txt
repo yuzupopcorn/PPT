@@ -1,3 +1,14 @@
+create database erp;
+
+use mysql;
+delete from mysql.user where User ='admin';
+delete from mysql.db where User ='admin';
+
+create user 'admin'@localhost identified by 'admin';
+grant create, drop, select, insert, delete, update on erp.* to 'admin'@'localhost';
+
+use erp;
+
 CREATE TABLE board(
 board_id int not null auto_increment primary key,
 board_department char(3) not null,		
