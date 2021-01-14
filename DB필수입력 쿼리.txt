@@ -3,10 +3,10 @@ create database erp;
 use mysql;
 delete from mysql.user where User ='admin';
 delete from mysql.db where User ='admin';
+FLUSH PRIVILEGES;
 
 create user 'admin'@localhost identified by 'admin';
 grant create, drop, select, insert, delete, update on erp.* to 'admin'@'localhost';
-
 FLUSH PRIVILEGES;
 
 use erp;
