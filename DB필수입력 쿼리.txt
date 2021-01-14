@@ -7,6 +7,8 @@ delete from mysql.db where User ='admin';
 create user 'admin'@localhost identified by 'admin';
 grant create, drop, select, insert, delete, update on erp.* to 'admin'@'localhost';
 
+FLUSH PRIVILEGES;
+
 use erp;
 
 CREATE TABLE board(
