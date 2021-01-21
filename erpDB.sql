@@ -70,7 +70,7 @@ CREATE TABLE `board` (
   `board_down` char(1) DEFAULT NULL,
   `board_move` varchar(5) NOT NULL,
   PRIMARY KEY (`board_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +79,7 @@ CREATE TABLE `board` (
 
 LOCK TABLES `board` WRITE;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
-INSERT INTO `board` VALUES (1,'999','com','999com','0','admin','사내공지사항','공지사항','1','1','1','1','9991'),(2,'999','sys','999sys','0','admin','시스템공지사항','공지사항','1','1','1','1','9992'),(3,'999','notice','999notice','0','admin','공지사항','공지사항','0','0','0','0','9993'),(4,'999','QnA','999QnA','0','admin','문의사항','일반','0','0','0','0','9994'),(5,'999','freeboard','999freeboard','0','admin','자유게시판','일반','0','0','0','0','9995'),(6,'000','notice','000notice','0','admin','공지사항','공지사항','1','1','1','1','1'),(7,'100','notice','100notice','0','admin','공지사항','공지사항','1','1','1','1','1001'),(8,'200','notice','200notice','0','admin','공지사항','공지사항','1','1','1','1','2001'),(9,'300','notice','300notice','0','admin','공지사항','공지사항','1','1','1','1','3001'),(10,'400','notice','400notice','0','admin','공지사항','공지사항','1','1','1','1','4001'),(11,'500','notice','500notice','0','admin','공지사항','공지사항','1','1','1','1','5001'),(12,'600','notice','600notice','0','admin','공지사항','공지사항','1','1','1','1','6001'),(13,'700','notice','700notice','0','admin','공지사항','공지사항','1','1','1','1','7001'),(14,'800','notice','800notice','0','admin','공지사항','공지사항','1','1','1','1','8001'),(15,'900','notice','900notice','0','admin','공지사항','공지사항','1','1','1','1','9001');
+INSERT INTO `board` VALUES (1,'999','com','999com','0','admin','사내 공지사항','공지사항','0','0','0','0','9991'),(2,'999','sys','999sys','0','admin','시스템 공지사항','공지사항','0','0','0','0','9992'),(3,'999','notice','999notice','0','admin','공지사항','공지사항','0','0','0','0','9993'),(4,'999','QnA','999QnA','0','admin','문의사항','일반','0','0','0','0','9994'),(5,'000','notice','000notice','0','admin','공지사항','공지사항','1','1','1','1','0001'),(6,'100','notice','100notice','0','admin','공지사항','공지사항','1','1','1','1','1001'),(7,'200','notice','200notice','0','admin','공지사항','공지사항','1','1','1','1','2001'),(8,'300','notice','300notice','0','admin','공지사항','공지사항','1','1','1','1','3001'),(9,'400','notice','400notice','0','admin','공지사항','공지사항','1','1','1','1','4001'),(10,'500','notice','500notice','0','admin','공지사항','공지사항','1','1','1','1','5001'),(11,'600','notice','600notice','0','admin','공지사항','공지사항','1','1','1','1','6001'),(12,'700','notice','700notice','0','admin','공지사항','공지사항','1','1','1','1','7001'),(13,'800','notice','800notice','0','admin','공지사항','공지사항','1','1','1','1','8001'),(14,'900','notice','900notice','0','admin','공지사항','공지사항','1','1','1','1','9001');
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,6 +183,40 @@ CREATE TABLE `board_article_200notice` (
 LOCK TABLES `board_article_200notice` WRITE;
 /*!40000 ALTER TABLE `board_article_200notice` DISABLE KEYS */;
 /*!40000 ALTER TABLE `board_article_200notice` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `board_article_300notice`
+--
+
+DROP TABLE IF EXISTS `board_article_300notice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `board_article_300notice` (
+  `aid` int NOT NULL AUTO_INCREMENT,
+  `division` char(1) DEFAULT NULL,
+  `subject` varchar(300) NOT NULL,
+  `writer` varchar(20) NOT NULL,
+  `content` text,
+  `regdate` datetime DEFAULT NULL,
+  `hit` int DEFAULT '0',
+  `fileName` varchar(300) DEFAULT NULL,
+  `fileOriName` varchar(300) DEFAULT NULL,
+  `fileUrl` varchar(500) DEFAULT NULL,
+  `emp_id_fk` int DEFAULT NULL,
+  `comment_hit` int DEFAULT NULL,
+  `secret` char(1) DEFAULT NULL,
+  PRIMARY KEY (`aid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `board_article_300notice`
+--
+
+LOCK TABLES `board_article_300notice` WRITE;
+/*!40000 ALTER TABLE `board_article_300notice` DISABLE KEYS */;
+/*!40000 ALTER TABLE `board_article_300notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -424,40 +458,6 @@ LOCK TABLES `board_article_999com` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `board_article_999freeboard`
---
-
-DROP TABLE IF EXISTS `board_article_999freeboard`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `board_article_999freeboard` (
-  `aid` int NOT NULL AUTO_INCREMENT,
-  `division` char(1) DEFAULT NULL,
-  `subject` varchar(300) NOT NULL,
-  `writer` varchar(20) NOT NULL,
-  `content` text,
-  `regdate` datetime DEFAULT NULL,
-  `hit` int DEFAULT '0',
-  `fileName` varchar(300) DEFAULT NULL,
-  `fileOriName` varchar(300) DEFAULT NULL,
-  `fileUrl` varchar(500) DEFAULT NULL,
-  `emp_id_fk` int DEFAULT NULL,
-  `comment_hit` int DEFAULT NULL,
-  `secret` char(1) DEFAULT NULL,
-  PRIMARY KEY (`aid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `board_article_999freeboard`
---
-
-LOCK TABLES `board_article_999freeboard` WRITE;
-/*!40000 ALTER TABLE `board_article_999freeboard` DISABLE KEYS */;
-/*!40000 ALTER TABLE `board_article_999freeboard` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `board_article_999notice`
 --
 
@@ -488,7 +488,7 @@ CREATE TABLE `board_article_999notice` (
 
 LOCK TABLES `board_article_999notice` WRITE;
 /*!40000 ALTER TABLE `board_article_999notice` DISABLE KEYS */;
-INSERT INTO `board_article_999notice` VALUES (1,'0','인사과 공지사항 입니다.','부사장','인사과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(2,'0','경영과 공지사항 입니다.','부사장','경영과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(3,'0','기획과 공지사항 입니다.','부사장','기획과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(4,'0','총무과 공지사항 입니다.','부사장','총무과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(5,'0','전산과 공지사항 입니다.','부사장','전산과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(6,'0','지원과 공지사항 입니다.','부사장','지원과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(7,'0','영업과 공지사항 입니다.','부사장','영업과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(8,'0','마케팅과 공지사항 입니다.','부사장','마케팅과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(9,'0','생산과 공지사항 입니다.','부사장','생산과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(10,'0','회사일정 공지사항 입니다.','부사장','회사일정 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(11,'0','사내서버 공지사항 입니다.','부사장','사내서버 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(12,'0','2021년도 일정 공지사항 입니다.','부사장','2021년도 일정  공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(13,'0','2021년도 지원과 공지사항 입니다.','부사장','2021년도 지원과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(14,'0','2021년도 마케팅과 공지사항 입니다.','부사장','2021년도 마케팅과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(15,'0','2021년도 영업과 공지사항 입니다.','부사장','2021년도 영업과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(16,'0','2021년도 인사과 공지사항 입니다.','부사장','2021년도 인사과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(17,'0','2021년도 경영과 공지사항 입니다.','부사장','2021년도 경영과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(18,'0','2021년도 총무과 공지사항 입니다.','부사장','2021년도 총무과 공지사항 입니다.','2021-01-15 17:06:05',0,'',NULL,NULL,9,0,'0'),(19,'0','2021년도 기획과 공지사항 입니다.','부사장','2021년도 기획과 공지사항 입니다.','2021-01-15 17:06:06',0,'',NULL,NULL,9,0,'0');
+INSERT INTO `board_article_999notice` VALUES (1,'0','인사과 공지사항 입니다.','부사장','인사과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(2,'0','경영과 공지사항 입니다.','부사장','경영과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(3,'0','기획과 공지사항 입니다.','부사장','기획과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(4,'0','총무과 공지사항 입니다.','부사장','총무과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(5,'0','전산과 공지사항 입니다.','부사장','전산과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(6,'0','지원과 공지사항 입니다.','부사장','지원과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(7,'0','영업과 공지사항 입니다.','부사장','영업과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(8,'0','마케팅과 공지사항 입니다.','부사장','마케팅과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(9,'0','생산과 공지사항 입니다.','부사장','생산과 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(10,'0','회사일정 공지사항 입니다.','부사장','회사일정 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(11,'0','사내서버 공지사항 입니다.','부사장','사내서버 공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(12,'0','2021년도 일정 공지사항 입니다.','부사장','2021년도 일정  공지사항 입니다.','2021-01-21 14:31:00',0,'',NULL,NULL,9,0,'0'),(13,'0','2021년도 지원과 공지사항 입니다.','부사장','2021년도 지원과 공지사항 입니다.','2021-01-21 14:31:01',0,'',NULL,NULL,9,0,'0'),(14,'0','2021년도 마케팅과 공지사항 입니다.','부사장','2021년도 마케팅과 공지사항 입니다.','2021-01-21 14:31:01',0,'',NULL,NULL,9,0,'0'),(15,'0','2021년도 영업과 공지사항 입니다.','부사장','2021년도 영업과 공지사항 입니다.','2021-01-21 14:31:01',0,'',NULL,NULL,9,0,'0'),(16,'0','2021년도 인사과 공지사항 입니다.','부사장','2021년도 인사과 공지사항 입니다.','2021-01-21 14:31:01',0,'',NULL,NULL,9,0,'0'),(17,'0','2021년도 경영과 공지사항 입니다.','부사장','2021년도 경영과 공지사항 입니다.','2021-01-21 14:31:01',0,'',NULL,NULL,9,0,'0'),(18,'0','2021년도 총무과 공지사항 입니다.','부사장','2021년도 총무과 공지사항 입니다.','2021-01-21 14:31:01',0,'',NULL,NULL,9,0,'0'),(19,'0','2021년도 기획과 공지사항 입니다.','부사장','2021년도 기획과 공지사항 입니다.','2021-01-21 14:31:01',0,'',NULL,NULL,9,0,'0');
 /*!40000 ALTER TABLE `board_article_999notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -902,37 +902,6 @@ LOCK TABLES `board_comment_999com` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `board_comment_999freeboard`
---
-
-DROP TABLE IF EXISTS `board_comment_999freeboard`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `board_comment_999freeboard` (
-  `cid` int NOT NULL AUTO_INCREMENT,
-  `aid_fk` int NOT NULL,
-  `comment` text,
-  `who` varchar(20) DEFAULT NULL,
-  `re_emp_id_fk` int DEFAULT NULL,
-  `ref` int DEFAULT NULL,
-  `re_cid` int DEFAULT NULL,
-  `re_cid_name` varchar(20) DEFAULT NULL,
-  `re_cid_depart` varchar(20) DEFAULT NULL,
-  `re_regdate` datetime DEFAULT NULL,
-  PRIMARY KEY (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `board_comment_999freeboard`
---
-
-LOCK TABLES `board_comment_999freeboard` WRITE;
-/*!40000 ALTER TABLE `board_comment_999freeboard` DISABLE KEYS */;
-/*!40000 ALTER TABLE `board_comment_999freeboard` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `board_comment_999notice`
 --
 
@@ -1117,7 +1086,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES ('12-123-12345','블루 ERP 시스템','BLUE ERP SYSTEM','김파랑','업태','종목','12345','부산시 북구 화명대로 123','051-123-4567','010-1234-5678','05112345678','2020-12-12','2021-01-01','1234567891011','https://blue@bluerp.com','www.bluerp.com',2,'ERP','erp system','회사소개;아이디어;포트폴리오;공지사항;고객센터','#;#;#;#;#','BLUE ERP','blue erp system','Copyright 2020. (김진희, 박민정, 윤가희, 임태주) all rights reserved.',NULL,NULL,NULL,NULL),('12-123-12345','블루 ERP 시스템','BLUE ERP SYSTEM','김파랑','업태','종목','12345','부산시 북구 화명대로 123','051-123-4567','010-1234-5678','05112345678','2020-12-12','2021-01-01','1234567891011','https://blue@bluerp.com','www.bluerp.com',2,'ERP','erp system','회사소개;아이디어;포트폴리오;공지사항;고객센터','#;#;#;#;#','BLUE ERP','blue erp system','Copyright 2020. (김진희, 박민정, 윤가희, 임태주) all rights reserved.',NULL,NULL,NULL,NULL);
+INSERT INTO `company` VALUES ('12-123-12345','블루 ERP 시스템','BLUE ERP SYSTEM','김파랑','업태','종목','12345','부산시 북구 화명대로 123','051-123-4567','010-1234-5678','05112345678','2020-12-12','2021-01-01','1234567891011','https://blue@bluerp.com','www.bluerp.com',2,'ERP','erp system','회사소개;ERP소개;깃허브;포트폴리오;고객지원','/erp/companyInfo;/erp/erpInfo;https://github.com/TaeJooLim/PPT;#;/erp/customerSupport','BLUE ERP','blue erp system','Copyright 2020. (김진희, 박민정, 윤가희, 임태주) all rights reserved.',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1310,7 +1279,7 @@ CREATE TABLE `employee` (
   `emp_off_use` double DEFAULT '0',
   `emp_off_remain` double DEFAULT NULL,
   PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1319,7 +1288,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'ad','ad','admin','1111-11-11','admin','1111-11-11','admin','admin','2021-01-15','N',NULL,10,'Y',NULL,NULL,0,NULL),(2,'200','04','14072002','2014-07-14','박과장','1990-03-14','1234','park@blue.com','2021-01-15','N',7,1,'Y',NULL,78,0,70.25),(3,'100','02','20121003','2020-12-22','전주임','1990-03-14','1234','abc@email.com','2021-01-15','N',1,1,'N',NULL,NULL,0,NULL),(4,'300','03','19083004','2019-08-31','김대리','1989-10-04','1234','kim@blue.com','2021-01-15','N',2,1,'Y',NULL,17,0,14.5),(5,'400','07','05094005','2019-09-21','강이사','1977-11-04','1234','kang@blue.com','2021-01-15','Y',2,1,'Y',NULL,NULL,0,NULL),(6,'500','01','20095006','2020-01-10','신사원','1999-11-05','1234','shin@blue.com','2021-01-15','N',1,1,'N',NULL,NULL,0,NULL),(7,'600','08','02046007','2002-04-10','정상무','1972-05-05','1234','jeong@blue.com','2021-01-15','N',19,1,'N',NULL,NULL,0,NULL),(8,'800','01','20116008','2020-11-10','하사원','2000-10-05','1234','ha@blue.com','2021-01-15','N',1,1,'N',NULL,NULL,0,NULL),(9,'900','10','01019009','2001-01-01','부사장','2000-10-05','1234','bu@blue.com','2021-01-15','N',20,1,'N',NULL,NULL,0,NULL),(10,'700','06','100770010','2010-07-21','위부장','1975-10-22','1234','wee@blue.com','2021-01-15','N',11,1,'N',NULL,NULL,0,NULL),(11,'000','05','140200011','2014-02-04','민차장','1981-06-22','1234','min@blue.com','2021-01-15','N',7,1,'N',NULL,NULL,0,NULL),(12,'400','02','180540012','2018-05-04','김영희','1990-11-22','1234','yhkim@blue.com','2021-01-15','N',3,1,'N',NULL,NULL,0,NULL),(13,'100','06','120310013','2012-03-05','인사부','1978-08-07','1234','insa@blue.com','2021-01-15','Y',9,1,'Y',NULL,NULL,0,NULL),(14,'200','01','200120014','2020-01-01','손직원','1995-08-08','1234','son@blue.com','2021-01-15','N',1,1,'Y',NULL,12,0,7.5),(15,'300','07','200130015','2020-01-01','진실로','1977-07-08','1234','jin@blue.com','2021-01-15','N',1,1,'Y',NULL,NULL,0,NULL),(16,'500','01','200150016','2020-01-01','오해영','1993-09-09','1234','oh@blue.com','2021-01-15','N',1,1,'Y',NULL,12,0,10.5),(17,'600','01','200160017','2020-01-01','송사리','1996-01-09','1234','song@blue.com','2021-01-15','N',1,1,'Y',NULL,12,0,10);
+INSERT INTO `employee` VALUES (1,'ad','ad','admin','1111-11-11','admin','1111-11-11','admin','admin','2021-01-21','N',NULL,10,'Y',NULL,NULL,0,NULL),(2,'000','06','120300018','2012-03-08','중부장','1975-10-22','1234','abc@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(3,'100','06','120310019','2012-03-01','인부장','1975-10-23','1234','bcd@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(4,'200','06','120320020','2012-03-08','경부장','1975-10-24','1234','cde@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(5,'300','06','120330021','2012-03-08','기부장','1975-10-25','1234','def@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(6,'400','06','120340022','2012-03-08','총부장','1975-10-26','1234','efg@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(7,'500','06','120350023','2012-03-08','전부장','1975-10-27','1234','fgh@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(8,'600','06','120360024','2012-03-08','지부장','1975-10-28','1234','ghi@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(9,'700','06','120370025','2012-03-08','영부장','1975-10-29','1234','hij@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(10,'800','06','120380026','2012-03-08','마부장','1975-10-30','1234','ijk@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL),(11,'900','06','120390027','2012-03-08','생부장','1975-10-31','1234','jkl@blue.com','2021-01-21','Y',9,9,'Y',NULL,NULL,0,NULL);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1370,7 +1339,7 @@ CREATE TABLE `employee_detail` (
 
 LOCK TABLES `employee_detail` WRITE;
 /*!40000 ALTER TABLE `employee_detail` DISABLE KEYS */;
-INSERT INTO `employee_detail` VALUES ('본사','1팀','남','010-1111-1111',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'하나','0101010-10-101',NULL,NULL,2),('본사','1팀','여','010-1111-1111',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'우리','0101010-10-101',NULL,NULL,3),('본사','1팀','여','010-1111-1111',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','0101010-10-101',NULL,NULL,4);
+INSERT INTO `employee_detail` VALUES ('본사','1팀','남','010-1111-1111',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'하나','0101010-10-101',NULL,NULL,2),('본사','1팀','여','010-1111-1111',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'우리','0101010-10-101',NULL,NULL,3),('본사','1팀','여','010-1111-1111',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','0101010-10-101',NULL,NULL,4),('본사','2팀','남','010-4242-4242',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'하나','0101010-10-101',NULL,NULL,17),('본사','1팀','여','010-4242-4242',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'우리','0101010-10-101',NULL,NULL,16),('본사','1팀','남','010-2020-2020',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'기업','0101010-10-101',NULL,NULL,15),('본사','1팀','남','010-1515-1414',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','0101010-10-101',NULL,NULL,14),('본사','1팀','남','010-1515-1414',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','0101010-10-101',NULL,NULL,18),('본사','1팀','여','010-1515-1414',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','0101010-10-101',NULL,NULL,19),('본사','2팀','여','010-1515-1414',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','1211145-10-101',NULL,NULL,20),('본사','3팀','여','010-1515-1414',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','0101010-10-101',NULL,NULL,21),('본사','3팀','여','010-8585-1666',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','0101010-10-101',NULL,NULL,22),('본사','1팀','남','010-8585-1666',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'우리','0101010-10-101',NULL,NULL,23),('본사','1팀','여','010-8585-1666',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'하나','32458-10-101',NULL,NULL,24),('본사','2팀','여','010-7951-8456',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'하나','32458-10-101',NULL,NULL,25),('본사','1팀','여','010-8008-4654',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'신한','45548-10-101',NULL,NULL,26),('본사','2팀','남','010-8008-4654',NULL,'-',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'NH농협','120633-10-101',NULL,NULL,27);
 /*!40000 ALTER TABLE `employee_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1387,7 +1356,7 @@ CREATE TABLE `msg_info` (
   `msg_from_id_fk` int NOT NULL,
   `msg_subject` varchar(50) DEFAULT NULL,
   `msg_content` varchar(300) DEFAULT NULL,
-  `msg_regdate` date DEFAULT NULL,
+  `msg_regdate` datetime DEFAULT NULL,
   `msg_confirm` char(1) DEFAULT 'N',
   `msg_send_del` char(1) DEFAULT 'N',
   `msg_from_del` char(1) DEFAULT 'N',
@@ -1622,7 +1591,7 @@ CREATE TABLE `salary` (
   `salary_l_income_fk` int DEFAULT NULL,
   `salary_totalcost_fk` int DEFAULT NULL,
   PRIMARY KEY (`sform_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1631,7 +1600,6 @@ CREATE TABLE `salary` (
 
 LOCK TABLES `salary` WRITE;
 /*!40000 ALTER TABLE `salary` DISABLE KEYS */;
-INSERT INTO `salary` VALUES (1,'2021-01',17,'01',10000,0,0,150000,160000,2100000,1905070,90000,62400,4600,13000,22670,2260,194930),(2,'2021-01',16,'01',10000,0,0,150000,160000,2100000,1905070,90000,62400,4600,13000,22670,2260,194930),(3,'2021-01',15,'07',10000,0,0,150000,160000,3300000,2891350,144000,99840,7360,20800,124230,12420,408650),(4,'2021-01',14,'01',10000,0,0,150000,160000,2100000,1905070,90000,62400,4600,13000,22670,2260,194930),(5,'2021-01',13,'06',90000,100000,0,150000,340000,3100000,2736730,135000,93600,6900,19500,98430,9840,363270),(6,'2021-01',12,'02',30000,0,0,150000,180000,2300000,2080590,99000,68640,5060,14300,29470,2940,219410),(7,'2021-01',11,'05',70000,0,0,150000,220000,2900000,2567440,126000,87360,6440,18200,85970,8590,332560),(8,'2021-01',10,'06',110000,0,0,150000,260000,3100000,2736730,135000,93600,6900,19500,98430,9840,363270),(9,'2021-01',9,'10',200000,0,0,150000,350000,3900000,3349440,171000,118560,8740,24700,206880,20680,550560),(10,'2021-01',8,'01',10000,0,0,150000,160000,2100000,1905070,90000,62400,4600,13000,22670,2260,194930),(11,'2021-01',7,'08',190000,0,0,150000,340000,3500000,3045970,153000,106080,7820,22100,150030,15000,454030),(12,'2021-01',6,'01',10000,0,0,150000,160000,2100000,1905070,90000,62400,4600,13000,22670,2260,194930),(13,'2021-01',5,'07',20000,100000,0,150000,270000,3300000,2891350,144000,99840,7360,20800,124230,12420,408650),(14,'2021-01',4,'03',20000,0,0,150000,170000,2500000,2248340,108000,74880,5520,15600,43330,4330,251660),(15,'2021-01',3,'02',10000,0,0,150000,160000,2300000,2080590,99000,68640,5060,14300,29470,2940,219410),(16,'2021-01',2,'04',70000,0,0,150000,220000,2700000,2412060,117000,81120,5980,16900,60860,6080,287940);
 /*!40000 ALTER TABLE `salary` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1766,4 +1734,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-15 17:17:02
+-- Dump completed on 2021-01-21 14:33:26
